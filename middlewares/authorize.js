@@ -19,3 +19,15 @@ export async function authorizeKey(req, res, next) {
     });
   }
 }
+
+export async function authorizeKeyMiddleware(req, res, next) {
+  if (global.user) {
+    next();
+  } else {
+    res.status(403),
+      next({
+        status: false,
+        message: "Unauthorized user ",
+      });
+  }
+}

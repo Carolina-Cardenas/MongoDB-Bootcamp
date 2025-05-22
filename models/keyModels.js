@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const keySchema = new Schema({
+const keySchema = new mongoose.Schema({
   key: {
     type: String,
     required: true,
@@ -11,5 +9,4 @@ const keySchema = new Schema({
 });
 
 const Key = mongoose.model("Key", keySchema);
-
 export default Key;
